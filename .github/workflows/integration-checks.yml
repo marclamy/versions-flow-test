@@ -6,7 +6,8 @@ on:
     paths-ignore: ["docs/**", "**/README.md", "**/CODE_OF_CONDUCT.md", "**/CONTRIBUTING.md", "**/LICENSE"]
     types:
       - opened
-      - edited
+      - reopened
+      - synchronize
 
 jobs:
   build:
