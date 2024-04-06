@@ -1,0 +1,27 @@
+name: "[Integration] Merge"
+
+on:
+  push:
+    branches: [ "develop" ]
+    paths-ignore: ["docs/**", "**/README.md", "**/CODE_OF_CONDUCT.md", "**/CONTRIBUTING.md", "**/LICENSE"]
+  pull_request:
+    branches: ["develop"]
+    paths-ignore: ["docs/**", "**/README.md", "**/CODE_OF_CONDUCT.md", "**/CONTRIBUTING.md", "**/LICENSE"]
+    types:
+      - closed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: echo "set version to rcN+1"
+    - run: echo "build"
+    - run: echo "test"
+    - run: echo "package"
+
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: echo "publish release candidate"

@@ -1,0 +1,17 @@
+name: "[Integration] Checks"
+
+on:
+  pull_request:
+    branches: ["develop"]
+    paths-ignore: ["docs/**", "**/README.md", "**/CODE_OF_CONDUCT.md", "**/CONTRIBUTING.md", "**/LICENSE"]
+    types:
+      - opened
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: echo "set version to rcN+1"
+    - run: echo "build"
+    - run: echo "test"
