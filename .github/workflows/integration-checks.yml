@@ -15,6 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - run: echo "set version to rcN+1"
-    - run: echo "build"
-    - run: echo "test"
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: 8
+        distribution: "temurin"
+        cache: "sbt"
+    - name: Build
+      run: sbt compile 
+    - name: Test
+      run: sbt test 
