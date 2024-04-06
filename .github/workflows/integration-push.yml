@@ -1,4 +1,4 @@
-name: "[Integration] Merge"
+name: "[Integration] Push"
 
 on:
   push:
