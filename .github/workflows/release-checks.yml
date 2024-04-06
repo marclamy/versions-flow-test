@@ -1,0 +1,16 @@
+name: "[Release] Checks"
+
+on:
+  pull_request:
+    branches: ["main"]
+    paths-ignore: ["docs/**", "**/README.md", "**/CODE_OF_CONDUCT.md", "**/CONTRIBUTING.md", "**/LICENSE"]
+    types:
+      - opened
+      - labeled
+
+jobs:
+  check_release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print labels
+      run: echo {{ toJSON(github.event.pull_request.labels.*.name) }}

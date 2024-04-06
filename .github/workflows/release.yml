@@ -1,0 +1,28 @@
+name: "[Release] Merge"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths-ignore: ["docs/**", "**/README.md", "**/CODE_OF_CONDUCT.md", "**/CONTRIBUTING.md", "**/LICENSE"]
+  pull_request:
+    branches: ["main"]
+    paths-ignore: ["docs/**", "**/README.md", "**/CODE_OF_CONDUCT.md", "**/CONTRIBUTING.md", "**/LICENSE"]
+    types:
+      - closed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Print labels
+      run: echo {{ toJSON(github.event.pull_request.labels.*.name) }}
+    - run: echo "set version to minor version or patch version upgrade"
+    - run: echo "run tests"
+    - run: echo "package"
+
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: echo "publish release"
