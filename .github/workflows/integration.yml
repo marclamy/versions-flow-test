@@ -1,4 +1,4 @@
-name: "[Integration] Push"
+name: "Integration"
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
     paths-ignore: ["docs/**", "**/README.md", "**/CODE_OF_CONDUCT.md", "**/CONTRIBUTING.md", "**/LICENSE"]
 
 jobs:
-  build:
+  integration_build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -15,7 +15,7 @@ jobs:
     - run: echo "test"
     - run: echo "package"
 
-  publish:
+  integration_publish:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
