@@ -11,6 +11,7 @@ on:
 
 jobs:
   integration_check_build:
+    name: "Integration Check - Build"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
